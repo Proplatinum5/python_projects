@@ -19,7 +19,7 @@ while current_choice != "0":
         else:
             print(f"Adding {chosen_part}")
             computer_parts[current_choice] = chosen_part
-        print(f"Your dictionary now contating: {computer_parts}")
+        print(f"Your dictionary now containing: {computer_parts}")
     else:
         print("Please add options from the list")
         # if current_choice not in available_parts: this was redundant code

@@ -1,3 +1,8 @@
-x: str = 1
+from contents import pantry, recipes
 
-x + x = rest
+
+for food_item, current_quantity in pantry.items():
+    quantitiy_in_pantry = pantry.get(food_item, 0)
+
+
+

@@ -2,12 +2,14 @@ from contents import pantry, recipes
 
 # display_dict = {str(index + 1): meal for index, meal in enumerate(recipes)}
 display_dict = {}
+shopping_list = {}
+
 for index, key in enumerate(recipes):
     display_dict[str(index + 1)] = key
 
 while True:
     # Display a menu of the recipes we know how to cook
-    print("Pleace choose your recipe")
+    print("Please choose your recipe")
     print("--------------------------")
     for key, value in display_dict.items():
         print(f"{key} - {value}")
@@ -22,13 +24,19 @@ while True:
         print("checking ingredients...")
         ingredients = recipes[selected_item]
         print(ingredients)
-        for food_item in ingredients:
+        for food_item, required_quantity in ingredients.items():
+            quantity_in_pantry = pantry.get(food_item, 0)
             #   if food_item not in pantry:
             #   print(f"\tYou do not have have {food_item}")
             #   This was my way of doing it which was correct
             #   However the instructor did it slightly different, so
             #   We will follow along with his method.
-            if food_item in pantry:
+            if required_quantity <= quantity_in_pantry:
                 print(f"\t{food_item} OK")
             else:
-                print(f"\tYou don't have a necessary ingredient: {food_item}")
+                quantity_to_buy = required_quantity - quantity_in_pantry
+                #print(f"\tYou need to buy {quantity_to_buy} of {food_item}")
+                #shopping_list[quantity_to_buy] = food_item
+                shopping_list[food_item] = quantity_to_buy
+        print("This is your Shopping list")
+        print(shopping_list)
