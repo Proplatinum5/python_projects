@@ -1,4 +1,4 @@
-hp = 100
+shp = 100
 atk = 10
 heal = 10
 mhp = 50
