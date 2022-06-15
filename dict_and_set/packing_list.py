@@ -48,10 +48,16 @@ while mode not in travel_mode:
 
 if mode == "2":
     # travelling by plane, remove restricted items
-    for restricted_items in restricted_items:
-        items.discard(restricted_items)
+    #for restricted_items in restricted_items: (itterating over a set
+    # can add time to your code)
+     #   items.discard(restricted_items)
         #.remove will not work because it will try to get rid of something
         # that does not exist
+    #items -= restricted_items ( better then iterating and only using one line of code
+    # and can be used on a set)
+    # this one will be better on a list rather then a set below
+    items.difference(restricted_items)
+
 
 # print the packing list
 print("You need to pack:")
